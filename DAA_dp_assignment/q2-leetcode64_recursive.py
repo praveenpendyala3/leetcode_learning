@@ -5,25 +5,24 @@ def minPathSum(grid):
     
     maxsum = 100*(m+n) # Absolute Maximum sum thats not possible based on constrains to move from top left to bottom right.
 
-    # dp = [[-1 for _ in range(n)] for _ in range(m)] # dp array 
+
+    ## DEFINITION: 
+    # minMove(i,j) = minimum sum to reach i,j in the matrix. 
+
+    # minMove(i,j) = min(s1,s2);
+    # s1 = grid[i][j] + minMove(i-1,j)      # if we reach i,j by moving down
+    # s2 = grid[i][j] + minMove(i,j-1)      # If we reach i,j by move left
+
 
     def minMove(i,j):           
-        
         if i==0 and j==0:
-            # dp[0][0]  = grid[0][0]
             return grid[0][0]
 
-        # if dp[i][j] != -1:
-        #     return dp[i][j]
 
         s1 = grid[i][j] + minMove(i-1,j) if i>=1 else maxsum #Move up
         s2 = grid[i][j] + minMove(i,j-1) if j>=1 else maxsum #move left
 
         return min(s1,s2)
-
-        # dp[i][j] = min(s1,s2)
-        # return dp[i][j]
-
 
     return minMove(m-1,n-1)
 
