@@ -2,7 +2,7 @@ def coinChange(coins, amount):
 
     ## DEFINITION: 
     # change(n) = minimum number of coins to make up n. 
-    
+
     # Given k coins:
     # change(n) = min(s1,s2,....sk);  (Recursive definition of the function)
     # s1 = 1 + change(n-coin[1])      # We use coin[1]
@@ -32,7 +32,7 @@ def coinChange(coins, amount):
     
     
     
-
+###### Testcases ######
 print(coinChange([1,2,5],11)) #output=3
 print(coinChange([2],3)) #output=-1
 print(coinChange([1],0)) #output=0
