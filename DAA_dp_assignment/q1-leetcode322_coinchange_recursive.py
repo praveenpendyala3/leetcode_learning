@@ -1,5 +1,15 @@
 def coinChange(coins, amount):
 
+    ## DEFINITION: 
+    # change(n) = minimum number of coins to make up n. 
+    
+    # Given k coins:
+    # change(n) = min(s1,s2,....sk);  (Recursive definition of the function)
+    # s1 = 1 + change(n-coin[1])      # We use coin[1]
+    # s2 = 1 + change(n-coin[2])      # We use coin[2]
+    # .....
+    # sk = 1 + change(n-coin[k])      # We use coin[k]
+
     def change(n):
         
         if n in coins:
